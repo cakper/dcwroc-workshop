@@ -1,0 +1,5 @@
+dcwroc_task:
+    resource: "@DcwrocTaskBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

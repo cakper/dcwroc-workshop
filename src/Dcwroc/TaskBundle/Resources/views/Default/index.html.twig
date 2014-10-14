@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Task list
+{% endblock %}
+
+{% block body %}
+    <li>
+    {% for task in tasks %}
+        <ul>
+        {{ task.name }} ~ {{ task.dueDate|date('Y/m/d') }}
+        </ul>
+    {% endfor %}
+    </li>
+    <br />
+    <a href="{{ path('task_create') }}">Create new task!</a>
+{% endblock %}
