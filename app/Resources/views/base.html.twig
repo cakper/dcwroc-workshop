@@ -10,6 +10,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    {% for message in app.session.flashbag.get('info') %}
+       <div class="flash-notice">{{ message }}</div>
+    {% endfor %}
         {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

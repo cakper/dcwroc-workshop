@@ -5,7 +5,9 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="dcwroc_task.repository" class="Dcwroc\TaskBundle\InMemory\InMemoryTaskRepository">
+        <service id="dcwroc_task.repository" class="Dcwroc\TaskBundle\Entity\TaskRepository"
+                 factory-service="doctrine" factory-method="getRepository">
+            <argument>Dcwroc\TaskBundle\Entity\Task</argument>
         </service>
     </services>
 </container>

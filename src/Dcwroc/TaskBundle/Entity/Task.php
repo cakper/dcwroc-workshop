@@ -7,7 +7,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Task 
+class Task
 {
     /**
      * @Assert\NotBlank()
@@ -30,6 +30,24 @@ class Task
     {
         $this->name = $name;
         $this->dueDate = $dueDate ? $dueDate : new DateTime('now');
+    }
+
+    private $id;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**

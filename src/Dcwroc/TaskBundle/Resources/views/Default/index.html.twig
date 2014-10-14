@@ -5,13 +5,17 @@
 {% endblock %}
 
 {% block body %}
-    <li>
-    {% for task in tasks %}
-        <ul>
-        {{ task.name }} ~ {{ task.dueDate|date('Y/m/d') }}
-        </ul>
-    {% endfor %}
-    </li>
-    <br />
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.name }} ~ {{ task.dueDate|date('Y/m/d') }}
+                {% if not task.completed %}
+                    <a href="{{ path('task_complete', {id: task.id}) }}">complete</a>
+                {% endif %}
+                <a href="{{ path('task_remove', {id: task.id}) }}">remove</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br/>
     <a href="{{ path('task_create') }}">Create new task!</a>
 {% endblock %}
